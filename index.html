@@ -1139,14 +1139,14 @@ const NAME={girder:'主拱梁 H(1100～450)×600×22×32',purlin:'小梁 H350×3
  splice:'主梁續接板（推定，D3）',baseplate:'柱腳底板 PL50×2380×890（D1）',stiffener:'柱腳加勁板 PL20（D1）',clip:'支架扣件 L75×75×8×150（推定，D5）',
  rail:'縱向支架 □100×100×4.5（推定）',pv:'光電板 1100×1400，225 W',glass:'異形玻璃 t=12',tray:'線槽 U型 t=3（內寬60×內深60，蓋板 t=3 寬80，長 8,850）',frame:'SUS304 不鏽鋼框架 20×40（長邊，總寬 1140）',conc:'混凝土基座'};
 const BN={anchor:['錨栓 M24 A307 L=900','D1，原圖'],hsb:['高強度螺栓 M24 F10T','D2，原圖'],hsb_splice:['高強度螺栓 M24 F10T（續接）','D3，推定'],m16:['螺栓 M16 8.8 級 熱浸鍍鋅','D5，推定'],m8:['螺栓 M8 SUS304（框架固定於支架）','推定']};
-function pvTex(){const c=document.createElement('canvas');c.width=440;c.height=560;const x=c.getContext('2d');
- x.fillStyle='rgba(205,230,238,0.20)';x.fillRect(0,0,440,560);
- const mx=20,my=20,gx=14,gy=4,cw=(440-2*mx-3*gx)/4,ch=(560-2*my-11*gy)/12;
+function pvTex(){const c=document.createElement('canvas');c.width=660;c.height=840;const x=c.getContext('2d');
+ x.fillStyle='rgba(215,232,240,0.16)';x.fillRect(0,0,660,840);
+ const mx=26,my=26,gx=20,gy=7,cw=(660-2*mx-3*gx)/4,ch=(840-2*my-11*gy)/12;
  for(let i=0;i<4;i++)for(let j=0;j<12;j++){const X=mx+i*(cw+gx),Y=my+j*(ch+gy);
-  x.fillStyle='#16213a';x.fillRect(X,Y,cw,ch);
-  x.strokeStyle='rgba(150,165,195,0.55)';x.lineWidth=1;
-  for(let k=1;k<=9;k++){const xx=X+cw*k/10;x.beginPath();x.moveTo(xx,Y);x.lineTo(xx,Y+ch);x.stroke();}}
- const t=new THREE.CanvasTexture(c);t.anisotropy=4;return t;}
+  x.fillStyle='#0a0b0e';x.fillRect(X,Y,cw,ch);
+  x.strokeStyle='rgba(135,140,155,0.40)';x.lineWidth=1.2;
+  for(let k=1;k<=12;k++){const xx=X+cw*k/13;x.beginPath();x.moveTo(xx,Y+2);x.lineTo(xx,Y+ch-2);x.stroke();}}
+ const t=new THREE.CanvasTexture(c);t.anisotropy=8;return t;}
 const groups={},mats={},picks=[];
 LAY.forEach(([k,,c])=>{groups[k]=new THREE.Group();scene.add(groups[k]);
  const o={color:css(c),roughness:.55,metalness:k==='base'?0:.35,side:THREE.DoubleSide};
